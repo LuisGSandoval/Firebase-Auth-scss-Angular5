@@ -23,6 +23,7 @@ export class RegisterPageComponent implements OnInit {
      console.log("Bien!!")
      console.log(res)
     }).catch( (err) =>{
+      alert("There was an error, please try again");
       console.log("El error fue: "+ err)
     });
   }
