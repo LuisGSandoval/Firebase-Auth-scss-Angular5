@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../servicios/auth.service'
-import { Router } from '@angular/router'
+import { AuthService } from '../../servicios/auth.service';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages'
+
 
 @Component({
   selector: 'app-login-page',
@@ -10,7 +12,11 @@ import { Router } from '@angular/router'
 export class LoginPageComponent implements OnInit {
   public password:string;
   public email : string;
-  constructor(public router: Router, public authService: AuthService) { }
+  constructor(
+    public router: Router, 
+    public authService: AuthService,
+    public flassMsg: FlashMessagesService
+  ) { }
 
   ngOnInit() {
   }
@@ -21,8 +27,8 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['/privado'])
     })
     .catch( (err) =>{
+      this.flassMsg.show(err.message, { cssClass: "alert alert-danger mt-3", timeout:4000 });
       console.log(err);
-      alert("There was an error, please try again")
       this.router.navigate(['/login']);
     });
   }

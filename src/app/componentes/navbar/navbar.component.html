@@ -1,21 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#" routerLink="/">LoginApplication</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mx-auto"> 
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login" *ngIf="!islogged">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/register" *ngIf="!islogged">Register</a>
-      </li>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">LoginApplication</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <li class="nav-item" *ngIf="islogged">
-        <a class="nav-link" routerLink="/"  (click)="Logout()">Salir</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarColor02">
+      <ul class="navbar-nav mx-auto"> 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" *ngIf="!islogged">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register" *ngIf="!islogged">Register</a>
+        </li>
+
+        <li class="nav-item" *ngIf="islogged">
+          <a class="nav-link" routerLink="/"  (click)="Logout()">Salir</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
