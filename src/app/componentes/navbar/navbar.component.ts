@@ -11,6 +11,8 @@ export class NavbarComponent implements OnInit {
   public islogged : boolean;
   public userName: string;
   public email: string;
+  public userPicture: string;
+
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
@@ -19,6 +21,7 @@ export class NavbarComponent implements OnInit {
         this.islogged=true;
         this.userName = auth.displayName;
         this.email = auth.email;
+        this.userPicture = auth.photoURL;
       }else{
         this.islogged = false;
       } 

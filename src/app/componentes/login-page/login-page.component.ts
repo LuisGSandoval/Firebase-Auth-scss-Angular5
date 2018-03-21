@@ -32,4 +32,14 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['/login']);
     });
   }
+
+
+  googleLogin(){
+    this.authService.loginGoole()
+    .then( (res) =>{
+      this.router.navigate(['/privado']);
+    }).catch( (err) =>{
+      this.flassMsg.show(err.message, {cssClass: "alert alert-danger", timeout: 4000})
+    })
+  }
 }

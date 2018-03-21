@@ -6,17 +6,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarColor02">
+    <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mx-auto"> 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" *ngIf="!islogged">Login</a>
+        <li class="nav-item" *ngIf="!islogged">
+          <a class="nav-link" routerLink="/login">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register" *ngIf="!islogged">Register</a>
+        <li class="nav-item" *ngIf="!islogged">
+          <a class="nav-link" routerLink="/register" >Register</a>
         </li>
 
         <li class="nav-item" *ngIf="islogged">
           <a class="nav-link" routerLink="/"  (click)="Logout()">Salir</a>
+        </li>
+
+        <li class="nav-item" *ngIf="islogged">
+          <a class="nav-link h5"> <span class="badge badge-pill badge-secondary"> {{ userName }}</span> </a>
+        </li>
+        
+        <li class="nav-item" *ngIf="islogged">
+          <img src="{{ userPicture }}" alt="" class="rounded-circle" width="45">
         </li>
       </ul>
     </div>
