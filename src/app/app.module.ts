@@ -12,9 +12,10 @@ import { PrivadoPageComponent } from './componentes/privado-page/privado-page.co
 import { NotFoundPageComponent } from './componentes/not-found-page/not-found-page.component';
 import { AuthService } from './servicios/auth.service';
 
-import { AngularFireModule  } from 'angularfire2'
-import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth'
-import  { environment} from '../environments/environment'
+import { AngularFireModule  } from 'angularfire2';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import  { environment} from '../environments/environment';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,9 @@ import  { environment} from '../environments/environment'
     FormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)
+    
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
